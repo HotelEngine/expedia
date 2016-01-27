@@ -17,7 +17,7 @@ module Expedia
     end
 
     def get_availability(args)
-      services('/ean-services/rs/hotel/v3/avail', args)
+      services('/ean-services/rs/hotel/v3/avail', args, :get, { use_ssl: true } )
     end
 
     def get_room_images(args)
