@@ -138,7 +138,7 @@ Expedia::Utils.logger = Rails.logger
 [:debug, :info, :warn, :error, :fatal]
 
 # Default logger level is Logger::ERROR. You can change it by setting
-Expedia.logger.level = Logger::DEBUG # Or whatever level you want...
+Expedia::Utils.logger.level = Logger::DEBUG # Or whatever level you want...
 </pre>
 
 
