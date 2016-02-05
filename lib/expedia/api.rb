@@ -9,7 +9,7 @@ module Expedia
     # @note A POST request is made instead of GET if 'hotelIdList' length > 200
     def get_list(args)
       method = (args[:hotelIdList] || args["hotelIdList"] || []).length > 200 ? :post : :get
-      services('/ean-services/rs/hotel/v3/list', args, method, { use_ssl: true } )
+      services('/ean-services/rs/hotel/v3/list', args, method, { use_ssl: true, ignore_timeout: true } )
     end
 
     def geo_search(args)
@@ -17,7 +17,7 @@ module Expedia
     end
 
     def get_availability(args)
-      services('/ean-services/rs/hotel/v3/avail', args, :get, { use_ssl: true } )
+      services('/ean-services/rs/hotel/v3/avail', args, :get, { use_ssl: true, ignore_timeout: true } )
     end
 
     def get_room_images(args)
