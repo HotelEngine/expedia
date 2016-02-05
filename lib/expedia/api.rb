@@ -49,7 +49,7 @@ module Expedia
     end
 
     def get_cancel(args)
-      services('/ean-services/rs/hotel/v3/cancel', args)
+      services('/ean-services/rs/hotel/v3/cancel', args, :get, {use_ssl: true, ignore_timeout: true} )
     end
 
     def get_ping(args)
