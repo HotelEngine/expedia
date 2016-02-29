@@ -69,9 +69,8 @@ module Expedia
         response = conn.send(verb, path, (verb == :post ? args : {}))
 
         # Log URL and params information
-        puts "\nExpedia [#{verb.upcase}] - #{server(options) + path} params: #{args.inspect} : #{response.status}\n"
+        Expedia::Utils.debug "\nExpedia [#{verb.upcase}] - #{server(options) + path} params: #{args.inspect} : #{response.status}\n"
         response = Expedia::HTTPService::Response.new(response.status.to_i, response.body, response.headers)
-        puts "EXPEDIA RESPONSE: #{response.inspect}"
 
         # If there is an exception make a [Expedia::APIError] object to return
         if response.exception?
