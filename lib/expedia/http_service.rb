@@ -4,7 +4,7 @@ require 'expedia/http_service/response'
 module Expedia
   module HTTPService
 
-    API_SERVER = 'api.eancdn.com'
+    API_SERVER = 'api.ean.com'
     # The development api server is not reliable. Often gives 400...
     # DEVELOPMENT_API_SERVER = 'dev.api.ean.com'
     DEVELOPMENT_API_SERVER = 'api.ean.com'
@@ -21,7 +21,7 @@ module Expedia
       #
       # @return a complete server address with protocol
       def server(options = {})
-        if Expedia.cid.to_i == 55505 && !options[:reservation_api]
+        if false && Expedia.cid.to_i == 55505 && !options[:reservation_api]
           server = DEVELOPMENT_API_SERVER
         else
           server = options[:reservation_api] ? RESERVATION_SERVER : API_SERVER
