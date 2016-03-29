@@ -12,19 +12,24 @@ module Expedia
     # @presentation_message Presentation error message returned
     # @verbose_message More specific detailed error message
     # @handling value indicating the severity of the exception and how it may be handled
+    # @alternative value indicating the corrective action to take
 
     attr_accessor :category, :presentation_message, :verbose_message,
-      :status, :error_body, :handling
+      :status, :error_body, :handling, :alternatives
 
     # Create a new API Error
     # @return the newly created APIError
     def initialize(status, body)
       @error_body = body
       @status = status
+      @alternatives = nil
 
       begin
-        @error_body = @error_body[@error_body.keys[0]]['EanWsError']
-      rescue
+        response = @error_body[@error_body.keys[0]]
+        @error_body = response['EanWsError']
+        @alternatives = response['LocationInfos'] if response.key?('LocationInfos')
+      rescue => e
+        byebug
       end
 
       unless @error_body.nil? || @error_body.empty?
