@@ -29,8 +29,8 @@ module Expedia
         @error_body = response['EanWsError']
         @alternatives = response['LocationInfos'] if response.key?('LocationInfos')
       rescue => e
-        #byebug
-        puts "EXPEDIA INITIALIZE EXCEPTION: #{e.inspect}"
+        byebug
+        puts "EXPEDIA INITIALIZE EXCEPTION: Status #{@status} #{e.inspect}"
       end
 
       unless @error_body.nil? || @error_body.empty?
