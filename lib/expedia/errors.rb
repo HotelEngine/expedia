@@ -29,7 +29,6 @@ module Expedia
         @error_body = response['EanWsError']
         @alternatives = response['LocationInfos'] if response.key?('LocationInfos')
       rescue => e
-        byebug
         puts "EXPEDIA INITIALIZE EXCEPTION: Status #{@status} #{e.inspect}"
       end
 
@@ -42,7 +41,6 @@ module Expedia
       end
 
       super(@verbose_message)
-
     end
 
     # Just to enable user to call this method on response object to know if any exception has occured
@@ -54,5 +52,4 @@ module Expedia
 
   # A standard Error calss for Raising exception if [cid, shared_secret, api_key] are not provided.
   class AuthCredentialsError < ::Expedia::ExpediaError; end
-
 end
