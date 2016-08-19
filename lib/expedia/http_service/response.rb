@@ -1,9 +1,6 @@
 module Expedia
-
   module HTTPService
-
     class Response
-
       attr_reader :status, :body, :headers
 
       # Creates a new Response object, which standardizes the response received From Expedia.
@@ -15,12 +12,9 @@ module Expedia
 
       # Simple predicate method to check if there is any exception
       def exception?
-        @headers['content-type'] != 'application/json' ||
-          (@body && @body[@body.keys[0]]['EanWsError']) ? true : false
+        @headers['content-type'] !~ /application\/json/ ||
+          (@body && @body[@body.keys[0]]['EanWsError'])
       end
-
     end
-
   end
-
 end
