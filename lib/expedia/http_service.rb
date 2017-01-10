@@ -70,7 +70,7 @@ module Expedia
 
         # Log URL and params information
         Expedia::Utils.debug "\nExpedia [#{verb.upcase}] - #{server(options) + path} params: #{args.inspect} : #{response.status}\n"
-        Expedia::Utils.debug "\n==== EXPEDIA GEM RAW RESPONSE: status: #{response.status}, headers: #{response.headers}, body: #{response.body}\n"
+        # Expedia::Utils.debug "\n==== EXPEDIA GEM RAW RESPONSE: status: #{response.status}, headers: #{response.headers}, body: #{response.body}\n"
         response = Expedia::HTTPService::Response.new(response.status.to_i, response.body, response.headers)
 
         # If there is an exception make a [Expedia::APIError] object to return
