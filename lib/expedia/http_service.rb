@@ -24,7 +24,7 @@ module Expedia
         if Expedia.cid.to_i == 55505 && !options[:reservation_api]
           server = DEVELOPMENT_API_SERVER
         else
-          RESERVATION_SERVER
+          server = RESERVATION_SERVER
         end
         "#{options[:use_ssl] ? "https" : "http"}://#{server}"
       end
