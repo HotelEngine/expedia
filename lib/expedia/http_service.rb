@@ -21,12 +21,7 @@ module Expedia
       #
       # @return a complete server address with protocol
       def server(options = {})
-        if Expedia.cid.to_i == 55505 && !options[:reservation_api]
-          server = DEVELOPMENT_API_SERVER
-        else
-          server = RESERVATION_SERVER
-        end
-        "#{options[:use_ssl] ? "https" : "http"}://#{server}"
+        "#{options[:use_ssl] ? "https" : "http"}://#{Expedia.server}"
       end
 
 
