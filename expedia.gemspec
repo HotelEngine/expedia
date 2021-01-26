@@ -15,7 +15,7 @@ Gem::Specification.new do |spec|
   spec.homepage      = "https://github.com/zaidakram/expedia"
 
   spec.add_dependency "multi_json", "~> 1.3"
-  spec.add_dependency "faraday", "~> 0.8"
+  spec.add_dependency "faraday", "~> 1.3"
   spec.add_development_dependency "rspec", "~> 2.8"
   spec.add_development_dependency "rake", "~> 0.8"
 
