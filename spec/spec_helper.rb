@@ -6,6 +6,8 @@ require 'expedia'
 #
 # See http://rubydoc.info/gems/rspec-core/RSpec/Core/Configuration
 RSpec.configure do |config|
+  config.color = true
+  config.formatter = ENV["CI"] == "true" ? :progress : :documentation
   config.treat_symbols_as_metadata_keys_with_true_values = true
   config.run_all_when_everything_filtered = true
   config.filter_run :focus
